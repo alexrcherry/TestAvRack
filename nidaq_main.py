@@ -68,81 +68,97 @@ task_list = do_tasks_init(sys)
 def S1O():
     open_nc_valve(task_list[0])
     valve_state[0] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S1C():
     close_nc_valve(task_list[0])
     valve_state[0] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S2O():
     open_nc_valve(task_list[1])
     valve_state[1] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S2C():
     close_nc_valve(task_list[1])
     valve_state[1] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S3O():
     open_nc_valve(task_list[2])
     valve_state[2] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S3C():
     close_nc_valve(task_list[2])
     valve_state[2] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S4O():
     open_nc_valve(task_list[3])
     valve_state[3] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S4C():
     close_nc_valve(task_list[3])
     valve_state[3] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S5O():
     open_no_valve(task_list[4])
     valve_state[4] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S5C():
     close_no_valve(task_list[4])
     valve_state[4] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S6O():
     open_no_valve(task_list[5])
     valve_state[5] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S6C():
     close_no_valve(task_list[5])
     valve_state[5] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S7O():
     open_nc_valve(task_list[6])
     valve_state[6] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S7C():
     close_nc_valve(task_list[6])
     valve_state[6] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S8O():
     open_nc_valve(task_list[7])
     valve_state[7] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S8C():
     close_nc_valve(task_list[7])
     valve_state[7] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S9O():
@@ -180,9 +196,9 @@ def S12O():
     open_nc_valve(task_list[3])
     time.sleep(0.25)
     open_nc_valve(task_list[2])
-
     valve_state[3] = 1
     valve_state[2] = 1
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def S13O():
@@ -192,9 +208,11 @@ def S13O():
             dur_on = int(duration_on.get())
             open_no_valve(task_list[4])
             valve_state[4] = 1
+            log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
             time.sleep(duration_on)
             close_no_valve(task_list[4])
             valve_state[4] = 0
+            log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
             time.sleep(duration_off)
     # create analog input thread
     cycle_process = Process(target=cycle)
@@ -226,6 +244,7 @@ def S14O():
     valve_state[5] = 1
     valve_state[6] = 0
     valve_state[7] = 0
+    log.csv_write([time.strftime("%Y%m%d")]+valve_state, valve_csv)
 
 
 def update_vals():
