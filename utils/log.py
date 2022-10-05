@@ -23,4 +23,3 @@ def csv_write(csv_data, csv_file_path):
         writer = csv.writer(file)
         writer.writerow(csv_data)
 
-
